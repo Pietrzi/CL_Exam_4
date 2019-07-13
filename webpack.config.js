@@ -1,5 +1,5 @@
 const path = require("path");
-const entryFile = "task05.js";
+const entryFile = "task03.js";
 
 module.exports = {
     entry: `./js/${entryFile}`,
@@ -14,12 +14,17 @@ module.exports = {
         port: 3001,
         historyApiFallback: true
     },
+    watch: true,
+    mode: "development",
     module: {
         rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: "babel-loader",
+                options: {
+                    presets: ["@babel/preset-env", "@babel/preset-react"]
+                  }
             }
         ]
     }
